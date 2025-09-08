@@ -1,8 +1,7 @@
 # Import python packages
 import streamlit as st
+from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
-import pandas as pd
-import requests
 
 # Write directly to the app
 st.title(f"Customize Your Smoothie! :cup_with_straw:")
@@ -55,4 +54,6 @@ if ingredients_list:
 
     if time_to_insert:
         session.sql(my_insert_stmt).collect()
-        st.success(f'Your Smoothie is ordered, {name_on_order}!', icon="✅")
+        st.success(f'Your Smoothie is ordered, {name_on_order}!', icon="✅")dered!', icon="✅")
+        st.stop()  # oprește doar după ce ai afișat mesajul
+
